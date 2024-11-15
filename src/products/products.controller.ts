@@ -26,8 +26,9 @@ export class ProductsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
+  update(@Param('id') id: number, @Body() updateProductDto: UpdateProductDto) {
     return this.productsService.update(+id, updateProductDto);
+    
   }
 
   @Delete(':id')
