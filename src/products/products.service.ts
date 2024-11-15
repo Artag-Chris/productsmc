@@ -44,8 +44,17 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} product`;
+  async findOne(id: number) {
+
+   const product = await this.product.findFirst({
+      where: {id}
+    })
+
+    if (!product) {
+      throw new Error('Product not found')
+    }
+
+    return product;
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
