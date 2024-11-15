@@ -20,4 +20,5 @@ model Product{
   available Boolean @default(true)
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
+  @@index([available])
 }
